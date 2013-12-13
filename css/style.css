@@ -1,0 +1,270 @@
+/*-------------------------------------------------------------------------------------------------
+General
+-------------------------------------------------------------------------------------------------*/
+
+body {
+	margin-left: 5%;
+	margin-right: 5%;  
+	background: rgb(2,27,46);
+	font-family: Calibri,Arial,sans-serif;	
+
+} 
+
+#wrapper {
+	width:  900px;
+	background: #A0A0A0 ;
+	margin: 0 auto;
+}
+
+.hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.mainframe {
+	border: thin solid black;
+	background: #FFFFFF;
+	padding: 1em;
+	margin: 5px;
+}
+
+.stat {
+	color: red;
+}
+
+a {
+	outline: none;
+}
+
+a img {
+	outline: none;
+	border: 0;
+}
+
+
+a:visited {  
+ 	color: white;  
+}
+
+a:hover {  
+ 	color: white;   
+
+}
+a:active {  
+ 	color: white;  
+}
+
+.error {
+	color: #800000;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Header
+-------------------------------------------------------------------------------------------------*/
+
+#headerimage {
+	display: block;
+	background-image: url(/images/my2cents_masthead.png);  
+	height: 160px;  
+	width:  900px;
+	text-indent: -9999px;
+
+}
+
+#headernav {
+	background: rgb(3,37,64);
+	border-bottom: medium solid orange;	
+}
+
+#headernav ul {  
+	display: inline;  
+	background: rgb(3,37,64);
+}  
+
+#headernav ul li {  
+	display: inline;
+	background-position: left;  
+	background-repeat: no-repeat;  
+	padding-left: 25px;
+	padding-right:25px;
+	background: rgb(3,37,64);
+	font-size: large;
+	font-weight: bold;
+	margin: 0;
+}  
+
+#headernav ul a {
+	font-size: 100%;  
+	font-weight: normal; 
+ 	color: white;
+	text-decoration: none;
+}
+
+.#headernav ul a:visited {  
+ 	color: white;  
+
+}
+#headernav ul a:hover {  
+	color: yellow;  
+
+}
+#headernav ul a:active {  
+	color: orange;  
+}
+
+#indextopdiv {
+	border-bottom: thin solid orange;
+}
+
+#indexbottomdiv {
+	padding: 1em;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Posts
+-------------------------------------------------------------------------------------------------*/
+
+
+#newpostframe {
+	border: thin solid black;
+	background: #FFFFFF;	
+	
+}
+
+#newpostform {
+	border: thin solid black;
+	background: gray;
+	margin: 5px;
+	padding: 5px;	
+	margin: 5px;
+	width: 856px;
+}
+
+.post_author {
+	font-size: x-large;
+	font-weight: bold;
+	color: navy;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+
+.post_content {
+	margin-top: 5px;
+	padding-top: 1em;
+	border-top: thin solid blue;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: large;
+}
+
+#content {
+	margin: 5px;
+	padding: 5px;
+
+}
+
+#contenttextarea {
+	margin: 5px;
+	padding: 5px;
+	width: 836px;
+
+}
+
+.post {
+	border: thin solid black;
+	background: #FFFFFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	margin: 5px;
+}
+
+.like_img {
+	padding-bottom: 4px;
+}
+
+.likes_count {
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 2px;
+}
+
+.likelink:hover {
+	background: url('/images/liked.png') bottom;
+}
+.post_submenu {
+	text-align: right;
+}
+
+.post_submenu ul {
+	display: inline;  
+}
+
+.post_submenu ul li {  
+	display: inline;
+}
+.post_submenu ul li a {
+	text-decoration: none;
+}
+
+.post_users_name {
+	font-size: x-large;
+	border-bottom: thin solid orange;
+	
+}
+
+/*-------------------------------------------------------------------------------------------------
+Profile Screen
+-------------------------------------------------------------------------------------------------*/
+#profileframe {
+	border: thin solid black;
+	background: white;
+	padding: 1em;
+	margin: 5px;
+}
+
+#profiletopdiv {
+	border-bottom: thin solid orange;
+}
+
+#profilebottomdiv {
+	padding: 1em;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Login Screen
+-------------------------------------------------------------------------------------------------*/
+
+#loginframe {
+	border: thin solid black;
+	background: #FFFFFF;
+	
+}
+
+#loginform {
+	border: thin solid orange;
+	background: gray;
+	margin: 1em;
+	padding: 1em;
+	width: 200px;
+	display:inline-block;
+
+}
+
+
+#welcometextdiv {
+	width: 500px;
+	display:inline-block;
+}
+
+#welcometextdiv p {
+	padding: 1em;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: large;
+}
+
+#signupbuttondiv {
+	text-align: right;
+
+}

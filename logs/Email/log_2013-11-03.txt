@@ -1,0 +1,10 @@
+2013-11-03 19:18:55 - INFO --> -------------------------- 
+2013-11-03 19:18:55 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 19:18:55 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2013-11-03 19:18:55 - INFO --> From: My 2 Cents (webmaster@sample-app.com) 
+2013-11-03 19:18:55 - INFO --> To: Frank Stein (frank@f.com),  
+2013-11-03 19:18:55 - INFO --> CC:  
+2013-11-03 19:18:55 - INFO --> BCC:  
+2013-11-03 19:18:55 - INFO --> Subject: Welcome to My 2 Cents 
+2013-11-03 19:18:55 - INFO --> Body: Hi Frank, this is just a message to confirm your registration at My 2 Cents 
+2013-11-03 19:18:57 - INFO --> FAILED TO SEND EMAIL 
