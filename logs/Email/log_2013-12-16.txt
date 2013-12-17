@@ -1,0 +1,10 @@
+2013-12-16 22:36:13 - INFO --> -------------------------- 
+2013-12-16 22:36:13 - INFO --> Controller/Method: users/p_signup 
+2013-12-16 22:36:13 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2013-12-16 22:36:13 - INFO --> From: Gordons Good Eats (webmaster@sample-app.com) 
+2013-12-16 22:36:13 - INFO --> To: Gordon Ramsey (gordonramsey@g.com),  
+2013-12-16 22:36:13 - INFO --> CC:  
+2013-12-16 22:36:13 - INFO --> BCC:  
+2013-12-16 22:36:13 - INFO --> Subject: Welcome to My 2 Cents 
+2013-12-16 22:36:13 - INFO --> Body: Hi Gordon, Welcome to My 2 Cents 
+2013-12-16 22:36:14 - INFO --> FAILED TO SEND EMAIL 

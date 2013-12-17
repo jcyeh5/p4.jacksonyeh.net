@@ -5,31 +5,20 @@
 	<form method='POST' action='/users/p_signup'>
 
 		First Name<br>
-	   <input type='text' name='first_name' value="<?php echo $first_name?>">
-			<?php if ($first_name_error <> ""):?> 
-				<font color="red"><?=$first_name_error?></font>
-			<?php endif;?>
+	   <input type='text' name='first_name'>
 		<br><br>
 
 		Last Name<br>
-	   <input type='text' name='last_name' value="<?php echo $last_name?>">   
-			<?php if ($last_name_error <> ""):?> 
-				<font color="red"><?=$last_name_error?></font>
-			<?php endif;?>	
+	   <input type='text' name='last_name'>   
 		<br><br>
 
 		Email<br>
-	   <input type='text' name='email' value="<?php echo $email?>">  	   
-			<?php if ($email_error <> ""):?> 
-				<font color="red"><?=$email_error?></font>
-			<?php endif;?>
+	   <input type='text' name='email'>  	   
 		<br><br>
 
 		Password<br>
-		<input type='password' name='password'  value="<?php echo $password?>">		
-			<?php if ($password_error <> ""):?> 
-				<font color="red"><?=$password_error?></font>
-			<?php endif;?>			
+		<input type='password' name='password' >		
+	
 		<br><br>
 
 		<input type='hidden' name='timezone'>

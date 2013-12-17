@@ -19,7 +19,7 @@ class index_controller extends base_controller {
 			$this->template->content = View::instance('v_index_index');
 			
 		# Now set the <title> tag
-			$this->template->title = "My Two Cents";
+			$this->template->title = "Gordon's Good Eats";
 			
 		# Get and print the current timestamp
 		//echo Time::now();
@@ -41,43 +41,34 @@ class index_controller extends base_controller {
 
 		# Else user is already logged in.  Get user's statistics
 		
-			# Get number of posts
+			# Get number of reviews given by user
 				# Query
-				$q = "	SELECT count(post_id)as num_posts			
-					FROM posts
-					WHERE posts.user_id = '".$this->user->user_id."'";
+				$q = "	SELECT count(review_id)as num_reviews			
+					FROM reviews
+					WHERE reviews.user_id = '".$this->user->user_id."'";
 
 
 				# Run the query, store the results in the variable $profile
-				$posts = DB::instance(DB_NAME)->select_row($q);	
+				$reviews = DB::instance(DB_NAME)->select_row($q);	
 				
 				
-			# Get number of followers
-				# Query
-				$p = "	SELECT count(user_user_id)as num_followers			
-					FROM users_users
-					WHERE users_users.user_id_followed = '".$this->user->user_id."'";
 
 
-				# Run the query, store the results in the variable $profile
-				$followers = DB::instance(DB_NAME)->select_row($p);	
-
-			# Get date/time of last post
+			# Get date/time of last review
 				# Query
 				$r = "	SELECT created			
-					FROM posts
-					WHERE posts.user_id = '".$this->user->user_id."' order by created desc limit 0,1";
+					FROM reviews
+					WHERE reviews.user_id = '".$this->user->user_id."' order by created desc limit 0,1";
 
 
 				# Run the query, store the results in the variable $profile
-				$lastpost = DB::instance(DB_NAME)->select_row($r);					
+				$lastreview = DB::instance(DB_NAME)->select_row($r);					
 			
 			# Pass data to the View
-			$this->template->content->posts = $posts;
-			$this->template->content->followers = $followers;
-			$this->template->content->lastpost = $lastpost;
+			$this->template->content->reviews = $reviews;
+			$this->template->content->lastreview = $lastreview;
 				
-		
+
 		
 		# Render template
 			echo $this->template;
