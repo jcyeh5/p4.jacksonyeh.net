@@ -14,7 +14,7 @@
 	<div id="wrapper">
 		<div id="header">
 	
-				<a href='/' id="headerimage" title="Gordon's Good Eats"><h1>Gordon's Good Eats</h1></a>
+				<a href='/' id="headerimage" title="Good Cookin"><h1>Good Cookin</h1></a>
 		
 			<div id="headernav">
 				<ul id="mainnav">
@@ -22,7 +22,7 @@
 
 					<!-- Menu for users who are logged in -->
 					<?php if($user): ?>
-						<li id="mainnav_postopinions"><a href='/posts/add'>Find Restaurant</a></li>
+						<li id="mainnav_postopinions"><a href='/posts/add'>Review Restaurant</a></li>
 						<li id="mainnav_postopinions"><a href='/posts/add'>Add Restaurant</a></li>						
 						<li id="mainnav_members"><a href='/posts/users'>Find Friends</a></li>
 						<li id="mainnav_editprofile"><a href='/users/profile'>About Me</a></li>
