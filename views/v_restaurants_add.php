@@ -81,23 +81,13 @@
 		<br><br>	
 
 
-		Outdoor Seating<br>
-	   <input type='text' name='outdoor'>  	   
+		Seagal's Rating<br>
+	   <input type='text' name='seagal_rating'>  	   
 		<br><br>			
 		
 
-
-	
-
-
-	
-
-
-
-
-		
-	
-	
+		Seagal's Review<br>
+		<textarea name='seagal_review' ></textarea>	
 
 	
 		

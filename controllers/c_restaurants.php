@@ -86,16 +86,14 @@ class restaurants_controller extends base_controller {
 
 		// CSS/JS includes
 		# Create an array of 1 or many client files to be included before the closing </body> tag
-		$client_files_head = Array(
+		$client_files_body = Array(
         "/js/jquery-1.10.2.min.js",
-		"/js/jstz-1.0.4.min.js"
+		"/js/jstz-1.0.4.min.js",
+		"/js/jquery.form.js",
+		"/js/seagal.js",
         );
 		# Use load_client_files to generate the links from the above array
-		$this->template->client_files_head = Utils::load_client_files($client_files_head);  	
-
-		
-
-		
+		$this->template->client_files_body = Utils::load_client_files($client_files_body);  	
 		
 		# Sanitize user input before moving on
 		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
@@ -126,8 +124,7 @@ class restaurants_controller extends base_controller {
 			
 		# Insert this user into the database
 			$user_id = DB::instance(DB_NAME)->insert('restaurants', $_POST);
-
-			
+	
 
 		# Send them to the restaurant index list
 			Router::redirect("/restaurants/index");		
@@ -135,14 +132,89 @@ class restaurants_controller extends base_controller {
     }
 
 
-    public function login($error = NULL) {
+    public function review($restaurant_id) {
 
 		# Setup view
-        $this->template->content = View::instance('v_users_login');
-        $this->template->title   = "Login";
+        $this->template->content = View::instance('v_restaurants_review');
+        $this->template->title   = "Review Restaurant";
 
-		# Pass data to the view
-		$this->template->content->error = $error;	
+		// CSS/JS includes
+		# Create an array of 1 or many client files to be included before the closing </body> tag
+		$client_files_body = Array(
+        "/js/jquery-1.10.2.min.js",
+		"/js/jstz-1.0.4.min.js",
+		"/js/jquery.form.js",
+		"/js/seagal.js",
+        );
+		# Use load_client_files to generate the links from the above array
+		$this->template->client_files_body = Utils::load_client_files($client_files_body);  		
+		
+		# Retrieve Restaurant info from database
+		$p = 'SELECT 
+				name,
+				category,
+				price_range,
+				address,
+				city,
+				state,
+				zip,
+				phone,
+				website,
+				ambience,
+				attire,
+				credit_cards,
+				groups,
+				kids,
+				reservations,
+				delivery,
+				takeout,
+				waiter,
+				outdoor,
+				seagal_rating,
+				seagal_review,
+				restaurant_id
+				
+			FROM restaurants
+				WHERE restaurants.restaurant_id = '.$restaurant_id ;
+
+		# Run the query, store the results in the variable $restaurant
+		$restaurant = DB::instance(DB_NAME)->select_row($p);	
+	
+		$q = 'SELECT 
+				reviews.review_id,
+				reviews.content,
+				reviews.created,
+				reviews.user_id AS review_user_id,
+				users.first_name,
+				users.last_name
+			FROM reviews
+			INNER JOIN users 
+				ON reviews.user_id = users.user_id
+			WHERE reviews.restaurant_id = '.$restaurant_id .' 
+			ORDER BY reviews.created DESC';
+
+		# Run the query, store the results in the variable $reviews
+		
+		$reviews = DB::instance(DB_NAME)->select_rows($q);
+
+
+		# LIKES
+		$r = 'SELECT
+				review_id,
+				COUNT(like_id) as num_likes
+			FROM likes
+			GROUP BY review_id';
+
+		# Run the query, store the results in the variable $likes
+		$likes = DB::instance(DB_NAME)->select_rows($r);
+			
+		# Pass data to the View
+		$this->template->content->restaurant = $restaurant;		
+		$this->template->content->reviews = $reviews;
+		$this->template->content->likes = $likes;	
+
+	
+
 		
 		# Render template
         echo $this->template;
