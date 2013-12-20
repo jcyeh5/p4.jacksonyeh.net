@@ -92,9 +92,9 @@
 				<!-- menu buttons for each review -->			
 				<div class="review_submenu" > 
 					<ul>
-						<!-- Display Delete button only for own reviews -->
+						<!-- Display Delete button only for user's own reviews -->
 						<?php if($user->user_id == $review['review_user_id']): ?>
-						<li><a href='/reviews/delete/<?=$review['review_id']?>'><img src="/images/delete.png" alt="delete this review"></a> </li>
+						<li><a href='/reviews/delete/<?=$review['review_id']?>/<?=$review['restaurant_id']?>'><img src="/images/delete.png" alt="delete this review"></a> </li>
 						<?php endif; ?>		
 						
 						<!-- Display LIKE button only for own reviews -->

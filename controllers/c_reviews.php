@@ -51,16 +51,16 @@ class reviews_controller extends base_controller {
 
     }
 	
-   public function delete($post_id) {
+   public function delete($review_id, $restaurant_id) {
 
    
-   		$post_id = DB::instance(DB_NAME)->sanitize($post_id);
-		# Delete this connection
-		$where_condition = 'WHERE post_id = '.$post_id;
-		DB::instance(DB_NAME)->delete('posts', $where_condition);
+   		$review_id = DB::instance(DB_NAME)->sanitize($review_id);
+		# Delete this review
+		$where_condition = 'WHERE review_id = '.$review_id;
+		DB::instance(DB_NAME)->delete('reviews', $where_condition);
 
 		# Send back to posts
-		Router::redirect("/posts/index");
+		Router::redirect("/restaurants/review/".$restaurant_id);
 
     }	
 	

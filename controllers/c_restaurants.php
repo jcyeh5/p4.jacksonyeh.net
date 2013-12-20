@@ -187,7 +187,8 @@ class restaurants_controller extends base_controller {
 				reviews.created,
 				reviews.user_id AS review_user_id,
 				users.first_name,
-				users.last_name
+				users.last_name,
+				reviews.restaurant_id
 			FROM reviews
 			INNER JOIN users 
 				ON reviews.user_id = users.user_id
