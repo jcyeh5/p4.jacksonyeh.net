@@ -9,7 +9,7 @@
 <?php foreach($restaurants as $restaurant): ?>
 	<div class = "restaurant">
 		<div id="restaurant_Listitem_left">		
-			<span id="restaurant_name"><?=$restaurant['name']?></span><br>
+			<span id="restaurant_name"><a href='/restaurants/review/<?=$restaurant['restaurant_id']?>'><?=$restaurant['name']?></a></span><br>
 			<span class="restaurant_list_label">Category:</span> <?=$restaurant['category']?> <br>
 			<span class="restaurant_list_label">Price Range:</span> <?=$restaurant['price_range']?>
 		

@@ -25,7 +25,8 @@ class restaurants_controller extends base_controller {
 				address,
 				city,
 				state,
-				zip
+				zip,
+				restaurant_id
 			FROM restaurants
 			ORDER BY name ASC';
 

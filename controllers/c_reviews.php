@@ -21,7 +21,6 @@ class reviews_controller extends base_controller {
         $_POST['created']  = Time::now();
         $_POST['modified'] = Time::now();
 
-		echo $_POST['restaurant_id'];
 		
         # Insert
         # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us

@@ -66,13 +66,15 @@
 		
 		
 		User Reviews: <br>
+	<form id="add_new_review">
 		<label for='content'>New Post:</label><br>
-		<div id="ajax_restaurant_id"><?=$restaurant['restaurant_id']?></div>
-			
+		<input type='hidden' name='restaurant_id' id="ajax_restaurant_id" value="<?=$restaurant['restaurant_id']?>" >	
+		<div id='review_entry_status'></div>
 		<textarea name='content' id="contenttextarea"></textarea>	
 		<br>		
-		<input type='button' id='post-btn' value='POST'>
-		
+		<input type='submit' id='post-btn' value='POST'>
+	</form>
+	
 <div id="user_review_box">
 	<!-- Display list of reviews -->
 	<?php foreach($reviews as $review): ?>
