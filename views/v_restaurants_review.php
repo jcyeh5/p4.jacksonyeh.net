@@ -70,7 +70,9 @@
 		<label for='content'>New Post:</label><br>
 		<input type='hidden' name='restaurant_id' id="ajax_restaurant_id" value="<?=$restaurant['restaurant_id']?>" >	
 		<div id='review_entry_status'></div>
-		<textarea name='content' id="contenttextarea"></textarea>	
+		<textarea name='content' id="contenttextarea"></textarea>
+<label for='rating'>Rating (0-10):</label><br>
+		<input type='text' name='rating'>
 		<br>		
 		<input type='submit' id='post-btn' value='POST'>
 	</form>
