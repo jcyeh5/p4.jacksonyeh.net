@@ -63,7 +63,8 @@ var options = {
     success: function(response) { 
         // Load the results recieved from process.php into the results div
              $('#user_review_box').prepend(response);    
-    } 
+    } ,
+	clearForm: true
 }; 
 
 // Then attach the ajax form plugin to this form so that when it's submitted, 

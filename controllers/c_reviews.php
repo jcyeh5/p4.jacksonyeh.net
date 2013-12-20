@@ -112,37 +112,64 @@ class reviews_controller extends base_controller {
 	}
 
 
+	public function user() {
+	
+		# Set up the View
+		$this->template->content = View::instance("v_reviews_user");
+		$this->template->title   = "User's Reviews";	
+
+		# Get user's profile stats
+		# Query
+		$p = 'SELECT first_name, last_name, city, state
+				FROM users
+				WHERE users.user_id = '.$this->user->user_id ;
+
+		# Run the query, store the results in the variable $user
+		$user = DB::instance(DB_NAME)->select_row($p);				
+				
+	
+
+		# Get a list of reviews given by user
+		$q = 'SELECT reviews.restaurant_id as restaurant_id, restaurants.name as name, restaurants.city as city, restaurants.state as state, reviews.rating as rating , reviews.created as created
+			FROM reviews join restaurants on restaurants.restaurant_id = reviews.restaurant_id
+			WHERE reviews.user_id = '.$this->user->user_id.' order by reviews.created DESC';
+						
+		# Run the query, store the results in the variable $users
+		$reviews = DB::instance(DB_NAME)->select_rows($q);		
+		
+	
+	
+			
+		# Pass data to the View
+		$this->template->content->user = $user;
+		$this->template->content->reviews = $reviews;	
+		
+		# Render the view
+		echo $this->template;
+	}		
+		
+	
 	public function users() {
 	
 		# Set up the View
-		$this->template->content = View::instance("v_posts_users");
-		$this->template->title   = "Users";
+		$this->template->content = View::instance("v_reviews_users");
+		$this->template->title   = "Users List";
 
-		# Build the query to get all the users
-		$q = "SELECT *
-			FROM users
-			ORDER BY first_name";
+		# Get a list of users and the number of reviews given per user
+		# Query
+		$p = "SELECT users.user_id as user_id, users.first_name as first_name, users.last_name as last_name, count(reviews.user_id) as count, max(reviews.created) as recent
+			FROM users left join reviews on users.user_id = reviews.user_id
+			group by users.first_name, users.last_name";
+						
 
-		# Execute the query to get all the users. 
-		# Store the result array in the variable $users
-		$users = DB::instance(DB_NAME)->select_rows($q);
-
-		# Build the query to figure out what connections does this user already have? 
-		# I.e. who are they following
-		$q = "SELECT * 
-			FROM users_users
-			WHERE user_id = ".$this->user->user_id;
-
-		# Execute this query with the select_array method
-		# select_array will return our results in an array and use the "users_id_followed" field as the index.
-		# This will come in handy when we get to the view
-		# Store our results (an array) in the variable $connections
-		$connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
-
-		# Pass data (users and connections) to the view
-		$this->template->content->users       = $users;
-		$this->template->content->connections = $connections;
-
+		# Run the query, store the results in the variable $users
+		$users = DB::instance(DB_NAME)->select_rows($p);	
+							
+			
+		# Pass data to the View
+		$this->template->content->users = $users;
+	
+		
 		# Render the view
 		echo $this->template;
 	}

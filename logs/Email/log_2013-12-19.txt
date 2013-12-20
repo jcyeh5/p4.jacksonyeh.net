@@ -1,0 +1,10 @@
+2013-12-19 23:12:17 - INFO --> -------------------------- 
+2013-12-19 23:12:17 - INFO --> Controller/Method: users/p_signup 
+2013-12-19 23:12:17 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2013-12-19 23:12:17 - INFO --> From: Good Cookin' (webmaster@sample-app.com) 
+2013-12-19 23:12:17 - INFO --> To: Rachel Ray (rachelray@r.com),  
+2013-12-19 23:12:17 - INFO --> CC:  
+2013-12-19 23:12:17 - INFO --> BCC:  
+2013-12-19 23:12:17 - INFO --> Subject: Welcome to My 2 Cents 
+2013-12-19 23:12:17 - INFO --> Body: Hi Rachel, Welcome to My 2 Cents 
+2013-12-19 23:12:18 - INFO --> FAILED TO SEND EMAIL 

@@ -24,7 +24,7 @@
 					<?php if($user): ?>
 						<li id="mainnav_postopinions"><a href='/restaurants/index'>Review Restaurant</a></li>
 						<li id="mainnav_postopinions"><a href='/restaurants/add'>Add Restaurant</a></li>						
-						<li id="mainnav_members"><a href='/posts/users'>Find Friends</a></li>
+						<li id="mainnav_members"><a href='/reviews/users'>Find People</a></li>
 						<li id="mainnav_editprofile"><a href='/users/profile'>About Me</a></li>
 						<li id="mainnav_logout"><a href='/users/logout'>Logout</a></li>
 

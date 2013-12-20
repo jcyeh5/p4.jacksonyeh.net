@@ -1,5 +1,8 @@
 <div class="mainframe">
-	<h2>Welcome to My 2 Cents.  Please register to start sharing your opinions with the rest of the world</h2>
+	<h2>Please register so I can tutor you on the finer things in life.  -"Chef" Steven Seagal</h2>
+	
+	<br>
+	<br>
 
 	<!-- Sign Up Form -->
 	<form method='POST' action='/users/p_signup'>
@@ -12,6 +15,14 @@
 	   <input type='text' name='last_name'>   
 		<br><br>
 
+		City<br>
+	   <input type='text' name='city'>   
+		<br><br>
+		
+		State<br>
+	   <input type='text' name='state'>   
+		<br><br>		
+		
 		Email<br>
 	   <input type='text' name='email'>  	   
 		<br><br>
