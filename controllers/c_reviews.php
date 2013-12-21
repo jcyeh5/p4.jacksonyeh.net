@@ -28,11 +28,50 @@ class reviews_controller extends base_controller {
  
 		# Set up the view
 		$view = View::instance('v_restaurants_review_add');
- 
+
+		# Retrieve review that was just added
+		$p = "SELECT
+				review_id,
+				restaurant_id
+			FROM reviews
+			WHERE restaurant_id = ".$_POST['restaurant_id'];
+
+		# Run the query, store the results in the variable $review
+		$review = DB::instance(DB_NAME)->select_row($p);		
+		
+	
+		# Retrieve user name from database
+		$q = 'SELECT 
+				user_id,
+				first_name,
+				last_name
+			FROM users 
+
+			WHERE user_id = '.$this->user->user_id ;
+
+		# Run the query, store the results in the variable $user
+		
+		$user = DB::instance(DB_NAME)->select_row($q);
+
+
+		# LIKES
+		$r = 'SELECT
+				review_id,
+				COUNT(like_id) as num_likes
+			FROM likes
+			GROUP BY review_id';
+
+		# Run the query, store the results in the variable $likes
+		$likes = DB::instance(DB_NAME)->select_rows($r);
+			
+
 		# Pass data to the view
 		$view->created = $_POST['created'];
 		$view->content = $_POST['content'];
- 
+ 		$view->user = $user;
+		$view->likes = $likes;
+		$view->review = $review;
+		
 		# Render template
         echo $view;
 

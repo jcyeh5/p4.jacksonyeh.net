@@ -3,7 +3,7 @@
 	
 	<br>
 	<br>
-
+	<div id='restaurantinfobox'> 
 	<!-- Sign Up Form -->
 	<form method='POST' action='/users/p_signup'>
 
@@ -48,6 +48,6 @@
 		<input type='submit' value='Sign up'>
 
 	</form>
-
+	</div>
 </div>
 
