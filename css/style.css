@@ -10,6 +10,14 @@ body {
 
 } 
 
+a:visited, a:hover,
+a:active , a{  
+ 	color: navy;  
+	text-decoration: none;
+}
+
+
+
 #wrapper {
 	width:  900px;
 	background: #A0A0A0 ;
@@ -26,12 +34,64 @@ body {
 	border: thin solid black;
 	background: #FFFFFF;
 	padding: 1em;
-	margin: 5px;
+	margin: 1px;
 }
 
-.stat {
-	color: red;
+
+
+.listitem {
+	width: 200px;
+	padding: 2px;
+	background: beige;
+	display: inline-block;
 }
+.list_label{
+	font-weight: bold;
+}
+
+.restaurant_name {
+		font-size: x-large;
+		color: blue;
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+v_reviews_users
+-------------------------------------------------------------------------------------------------*/
+
+.listbox {
+	padding: 3px;
+	border-right: thick solid maroon;
+	border-bottom: thin solid maroon;	
+	background: gray;
+}
+
+.review_user_list_date {
+	width: 412px;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------
+v_restaurant_index
+-------------------------------------------------------------------------------------------------*/
+.restaurant_Listitem {
+	width: 832px;
+
+	padding: 0px;
+}
+.restaurant_Listitem_left{
+	width: 390px;
+	margin: 0px;
+	padding: 5px;
+	padding-left: 14px;
+}
+.restaurant_Listitem_right {
+	width: 404px;
+	margin: 0px;
+	padding: 5px;
+}
+
 
 a {
 	outline: none;
@@ -43,17 +103,7 @@ a img {
 }
 
 
-a:visited {  
- 	color: white;  
-}
 
-a:hover {  
- 	color: white;   
-
-}
-a:active {  
- 	color: white;  
-}
 
 .error {
 	color: #800000;
@@ -122,9 +172,62 @@ Header
 }
 
 /*-------------------------------------------------------------------------------------------------
-Posts
+v_restaurants_add
+-------------------------------------------------------------------------------------------------*/
+.restaurantinfobox{
+	width: 270px;
+	background: beige;
+	display: inline-block;
+
+}
+
+/*-------------------------------------------------------------------------------------------------
+restaurants review
 -------------------------------------------------------------------------------------------------*/
 
+#restaurantinfobox {
+	width: 824px;
+	padding: 10px;
+	background: beige;
+	border: thin solid orange;
+}
+
+#restaurantinfobox_left{
+	width: 340px;
+	background: beige;
+	display: inline-block;
+
+}
+#restaurantinfobox_middle{
+	width: 300px;
+	background: beige;
+	display: inline-block;
+}
+#restaurantinfobox_right{
+	width: 176px;
+	background: beige;
+	display: inline-block;
+}
+
+#seagal_rating_box{
+	background: maroon;
+	width: 160px;
+	color: white;
+	margin: 5px;
+	text-align: center;
+	border: thin solid gold;
+}
+
+#seagal_rating_label {
+	font-size: x-large;
+	padding: 10px;
+	text-decoration: underline;
+}
+
+#seagal_rating {
+	font-weight: bold;
+	font-size: 60px;
+}
 
 #newpostframe {
 	border: thin solid black;
@@ -141,7 +244,7 @@ Posts
 	width: 856px;
 }
 
-.post_author {
+.review_author {
 	font-size: x-large;
 	font-weight: bold;
 	color: navy;
@@ -150,7 +253,7 @@ Posts
 }
 
 
-.post_content {
+.review_content {
 	margin-top: 5px;
 	padding-top: 1em;
 	border-top: thin solid blue;
@@ -171,7 +274,7 @@ Posts
 
 }
 
-.post {
+.review {
 	border: thin solid black;
 	background: #FFFFFF;
 	padding-left: 5%;
@@ -193,29 +296,29 @@ Posts
 .likelink:hover {
 	background: url('/images/liked.png') bottom;
 }
-.post_submenu {
+.review_submenu {
 	text-align: right;
 }
 
-.post_submenu ul {
+.review_submenu ul {
 	display: inline;  
 }
 
-.post_submenu ul li {  
+.review_submenu ul li {  
 	display: inline;
 }
-.post_submenu ul li a {
+.review_submenu ul li a {
 	text-decoration: none;
 }
 
-.post_users_name {
+.review_users_name {
 	font-size: x-large;
 	border-bottom: thin solid orange;
 	
 }
 
 /*-------------------------------------------------------------------------------------------------
-Profile Screen
+v_users_profile
 -------------------------------------------------------------------------------------------------*/
 #profileframe {
 	border: thin solid black;
@@ -225,13 +328,32 @@ Profile Screen
 }
 
 #profiletopdiv {
-	border-bottom: thin solid orange;
+	border-bottom: thin solid blue;
 }
 
 #profilebottomdiv {
 	padding: 1em;
 }
 
+/*-------------------------------------------------------------------------------------------------
+v_reviews_user
+-------------------------------------------------------------------------------------------------*/
+.reviews_user_listbox {
+	padding: 3px;
+	border-top: thin solid gray;
+	border-left: thin solid gray;
+	border-right: thick solid maroon;
+	border-bottom: thin solid maroon;	
+	background: beige;
+}
+
+.review_user_list_city {
+	width: 130px;
+}
+
+.review_users_list_date {
+width: 240px;
+}
 /*-------------------------------------------------------------------------------------------------
 Login Screen
 -------------------------------------------------------------------------------------------------*/

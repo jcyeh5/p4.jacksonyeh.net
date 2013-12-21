@@ -1,10 +1,11 @@
 <div id="profileframe">
+	<div id='restaurantinfobox'> 
 	<div id="profiletopdiv">
 		<h1>Edit your profile: <?=$user->first_name?> <?=$user->last_name?></h1>
 	</div>
 	
 	<div id="profilebottomdiv">
-	
+	<span class="list_label">	
 		<!-- Update Profile Form -->
 		<form method='POST' action='/users/p_profile'>
 
@@ -49,5 +50,7 @@
 			<input type='submit' value='Update'>
 
 		</form>
+	</span>	
+	</div>
 	</div>
 </div>
