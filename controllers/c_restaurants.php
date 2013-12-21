@@ -6,7 +6,7 @@ class restaurants_controller extends base_controller {
         #echo "users_controller construct called<br><br>";
     } 
 
-    public function index() {
+    public function index($reason=null) {
 	
 		# If user is blank, they're not logged in; redirect them to the login page
 		if(!$this->user) {
@@ -15,7 +15,13 @@ class restaurants_controller extends base_controller {
 
 		# Set up the View
 		$this->template->content = View::instance('v_restaurants_index');
-		$this->template->title   = "All Restaurants";
+		
+		if ($reason == "edit") {
+			$this->template->title   = "Edit Restaurant Info";			
+		}
+		else {
+			$this->template->title   = "All Restaurants";
+		}
 
 		# Get list of Restaurants
 		$q = 'SELECT 
@@ -48,6 +54,7 @@ class restaurants_controller extends base_controller {
 		$this->template->content->restaurants = $restaurants;
 		$this->template->content->likes = $likes;		
 		$this->template->content->user = $this->user;
+		$this->template->content->purpose = $reason;
 		
 		# Render the View
 		echo $this->template;	

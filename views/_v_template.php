@@ -22,10 +22,11 @@
 
 					<!-- Menu for users who are logged in -->
 					<?php if($user): ?>
-						<li id="mainnav_postopinions"><a href='/restaurants/index'>Review Restaurant</a></li>
+						<li id="mainnav_postopinions"><a href='/restaurants/index'>Review Bistro</a></li>
 
 						<?php if ($user->email=='gordonramsey@g.com'):?>
-						<li id="mainnav_postopinions"><a href='/restaurants/add'>Add Restaurant</a></li>
+						<li id="mainnav_postopinions"><a href='/restaurants/add'>Add Bistro</a></li>
+						<li id="mainnav_postopinions"><a href='/restaurants/index/edit'>Edit Bistro</a></li>						
 						<?php endif; ?>
 						
 						<li id="mainnav_members"><a href='/reviews/users'>Find People</a></li>

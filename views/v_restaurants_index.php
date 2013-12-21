@@ -12,8 +12,14 @@
 		<div class="listbox">	
 			<div class ="restaurant_Listitem listitem">
 				<div class="restaurant_Listitem_left listitem">		
-					<span id="restaurant_name" class="restaurant_name"><a  href='/restaurants/review/<?=$restaurant['restaurant_id']?>'><?=$restaurant['name']?></a></span><br>
-					<span class="list_label">
+					<!-- if adding a review -->
+					<?php if($purpose == 'edit'): ?>
+						<span id="restaurant_name" class="restaurant_name"><a  href='/restaurants/edit/<?=$restaurant['restaurant_id']?>'><?=$restaurant['name']?></a></span><br>
+					<?php else: ?>	
+					<!-- else editing restaurant info -->					
+						<span id="restaurant_name" class="restaurant_name"><a  href='/restaurants/review/<?=$restaurant['restaurant_id']?>'><?=$restaurant['name']?></a></span><br>
+					<?php endif; ?>						
+						<span class="list_label">
 						Category:
 					</span> 
 					<?=$restaurant['category']?> <br>
