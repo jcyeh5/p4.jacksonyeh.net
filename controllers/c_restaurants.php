@@ -61,26 +61,105 @@ class restaurants_controller extends base_controller {
 		
     }
 
-    public function add($error = NULL) {
+    public function add($restaurant_id= NULL) {
 
         # Setup view
         $this->template->content = View::instance('v_restaurants_add');
-        $this->template->title   = "add restaurants";
-
+   
+		# are we Editing or Adding a restaurant?
+		if ($restaurant_id != null){
+			$this->template->title   = "edit a restaurant";
+			$purpose = 'edit';
+		}
+		else {
+			$this->template->title   = "add a restaurant";
+			$purpose = 'add';
+		}
+			
 		// CSS/JS includes
 		# Create an array of 1 or many client files to be included before the closing </body> tag
 		$client_files_head = Array(
         "/js/jquery-1.10.2.min.js",
 		"/js/jstz-1.0.4.min.js"
         );
+		
 		# Use load_client_files to generate the links from the above array
 		$this->template->client_files_head = Utils::load_client_files($client_files_head);  						
+
+		
+		# if we are editing, we will need to look up existing data
+		if ($purpose == 'edit'){
+
+			# Retrieve Restaurant info from database
+			$p = 'SELECT 
+					name,
+					category,
+					price_range,
+					address,
+					city,
+					state,
+					zip,
+					phone,
+					website,
+					ambience,
+					attire,
+					credit_cards,
+					groups,
+					kids,
+					reservations,
+					delivery,
+					takeout,
+					waiter,
+					outdoor,
+					seagal_rating,
+					seagal_review,
+					restaurant_id
+					
+				FROM restaurants
+					WHERE restaurants.restaurant_id = '.$restaurant_id ;
+
+			# Run the query, store the results in the variable $restaurant
+			$restaurant = DB::instance(DB_NAME)->select_row($p);	
+		
+		}
+		# We will be adding a new restaurant, so initialize all array values to null
+		# and place inside $restaurant
+		else {
+			$restaurant  = Array(	'name' => null,
+									'category' => null,
+									'price_range' => null,
+									'address' => null,
+									'city' => null,
+									'state' => null,
+									'zip' => null,
+									'phone' => null,
+									'website' => null,
+									'ambience' => null,
+									'attire' => null,
+									'credit_cards' => null,
+									'groups' => null,
+									'kids' => null,
+									'reservations' => null,
+									'delivery' => null,
+									'takeout' => null,
+									'waiter' => null,
+									'outdoor' => null,
+									'seagal_rating' => null,
+									'seagal_review' => null,
+									'restaurant_id' => null,
+							);
+		}
+		
+		# Pass data to the View		
+		$this->template->content->purpose = $purpose;
+		$this->template->content->restaurant = $restaurant;
+		
 		
         # Render template
         echo $this->template;
     }
 
-	public function p_add() {
+	public function p_add($restaurant_id = null) {
 		
 	
         # Dump out the results of POST to see what the form submitted
@@ -90,7 +169,16 @@ class restaurants_controller extends base_controller {
 		
         # Setup view
         $this->template->content = View::instance('v_restaurants_add');
-        $this->template->title   = "add restaurants";
+   
+		# are we Editing or Adding a restaurant?
+		if ($restaurant_id != null){
+			$this->template->title   = "edit a restaurant";
+			$purpose = 'edit';
+		}
+		else {
+			$this->template->title   = "add a restaurant";
+			$purpose = 'add';
+		}
 
 		// CSS/JS includes
 		# Create an array of 1 or many client files to be included before the closing </body> tag
@@ -106,36 +194,25 @@ class restaurants_controller extends base_controller {
 		# Sanitize user input before moving on
 		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
-		# Check if restaurant has already been added
-			
-			# Query
-			$q = "	SELECT name			
-					FROM restaurants
-					WHERE restaurants.name = '".$_POST['name']."'";
 
-
-			# Run the query, store the results in the variable $profile
-			$profile = DB::instance(DB_NAME)->select_row($q);	
-			
-				
-			# if the email address already exists in the database
-			if ($profile != null){
-				# Send them back to the login page with an error
-				Router::redirect("/restaurants/add/alreadyadded");		
-			}
 		
 			
 		# More data we want stored with the restaurant
-			$_POST['created']  = Time::now();
-			$_POST['modified'] = Time::now();
+		$_POST['created']  = Time::now();
+		$_POST['modified'] = Time::now();
 
-			
-		# Insert this user into the database
+		
+		if ($purpose == 'edit'){
+			# update restaurant in the database
+			$user_id = DB::instance(DB_NAME)->update('restaurants', $_POST, 'WHERE restaurant_id = '.$restaurant_id );			
+		}
+		else {
+			# add new restaurant into the database
 			$user_id = DB::instance(DB_NAME)->insert('restaurants', $_POST);
-	
+		}
 
 		# Send them to the restaurant index list
-			Router::redirect("/restaurants/index");		
+		Router::redirect("/restaurants/index");		
 		
     }
 
