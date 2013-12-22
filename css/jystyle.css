@@ -151,7 +151,7 @@ Header
 	text-decoration: none;
 }
 
-.#headernav ul a:visited {  
+#headernav ul a:visited {  
  	color: white;  
 
 }
@@ -176,9 +176,18 @@ v_restaurants_add
 -------------------------------------------------------------------------------------------------*/
 .restaurantinfobox{
 	width: 270px;
+
 	background: beige;
 	display: inline-block;
 
+}
+
+.reviewtextarea {
+	width: 90%;
+	padding: 5px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 /*-------------------------------------------------------------------------------------------------

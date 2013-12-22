@@ -6,7 +6,7 @@
 		<?php if($purpose == 'add'): ?>	
 			<form id="add_restaurant_form" method='POST' action='/restaurants/p_add'>
 		<?php else: ?>	
-			<form id="edit_restaurant_form" method='POST' action='/restaurants/p_add/<?=$restaurant['restaurant_id']?>'>
+			<form id="add_restaurant_form" method='POST' action='/restaurants/p_add/<?=$restaurant['restaurant_id']?>'>
 		<?php endif; ?>	
 			<span class="list_label">
 			Restaurant Name:&nbsp &nbsp <input type='text' name='name' size='50' value="<?=$restaurant['name']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>
@@ -21,7 +21,7 @@
 			
 			Phone &nbsp &nbsp <input type='text' name='phone' value="<?=$restaurant['phone']?>" class="validate[required] text-input" data-prompt-position ="centerRight"><br><br>	
 			
-			website &nbsp &nbsp <input type='text' name='website' value="<?=$restaurant['website']?>"   ><br><br>				
+			website &nbsp &nbsp <input type='text' name='website' value="<?=$restaurant['website']?>" class="validate[custom[url]] text-input" data-prompt-position ="centerRight"  ><br><br>				
 
 		<div class="restaurantinfobox">	
 			Category<br>
@@ -37,39 +37,39 @@
 			<br><br>
 		
 			Accept Credit Cards<br>
-		   <input type='text' name='credit_cards' value="<?=$restaurant['credit_cards']?>" class="validate[required] text-input" >  	   
+		   <input type='text' name='credit_cards' value="<?=$restaurant['credit_cards']?>" class="validate[required, custom[YesNo]] text-input" >  	   
 			<br><br>		
 		</div>
 		<div class="restaurantinfobox">	
 			Price Range<br>
-		   <input type='text' name='price_range' value="<?=$restaurant['price_range']?>" class="validate[required] text-input" >  	   
+		   <input type='text' name='price_range' value="<?=$restaurant['price_range']?>" class="validate[required, custom[pricerange]] text-input" >  	   
 			<br><br>
 
 			
 			Good For Groups<br>
-		   <input type='text' name='groups' value="<?=$restaurant['groups']?>" class="validate[required] text-input" >  	   
+		   <input type='text' name='groups' value="<?=$restaurant['groups']?>" class="validate[required, custom[YesNo]] text-input" >  	   
 			<br><br>
 
 			
 			Good For Kids<br>
-		   <input type='text' name='kids' value="<?=$restaurant['kids']?>" class="validate[required] text-input" >  	   
+		   <input type='text' name='kids' value="<?=$restaurant['kids']?>" class="validate[required, custom[YesNo]] text-input" >  	   
 			<br><br>
 
 			Take Reservations<br>
-		   <input type='text' name='reservations' value="<?=$restaurant['reservations']?>" class="validate[required] text-input" >  	   
+		   <input type='text' name='reservations' value="<?=$restaurant['reservations']?>" class="validate[required, custom[YesNo]] text-input" >  	   
 			<br><br>
 		</div>
 		<div class="restaurantinfobox">	
 			Delivery<br>
-		   <input type='text' name='delivery' value="<?=$restaurant['delivery']?>" class="validate[required] text-input" >  	   
+		   <input type='text' name='delivery' value="<?=$restaurant['delivery']?>" class="validate[required, custom[YesNo]] text-input" >  	   
 			<br><br>	
 
 			Takeout<br>
-		   <input type='text' name='takeout' value="<?=$restaurant['takeout']?>" class="validate[required] text-input" >  	   
+		   <input type='text' name='takeout' value="<?=$restaurant['takeout']?>" class="validate[required, custom[YesNo]] text-input" >  	   
 			<br><br>		
 
 			Waiter Serice<br>
-		   <input type='text' name='waiter' value="<?=$restaurant['waiter']?>" class="validate[required] text-input"  >  	   
+		   <input type='text' name='waiter' value="<?=$restaurant['waiter']?>" class="validate[required, custom[YesNo]] text-input"  >  	   
 			<br><br>	
 
 
@@ -79,7 +79,7 @@
 		</div>	
 
 			Seagal's Review<br>
-			<textarea name='seagal_review' value="<?=$restaurant['seagal_review']?>" class="validate[required] text-input" ></textarea>	
+			<textarea  name='seagal_review' class="reviewtextarea validate[required] text-input" ><?=$restaurant['seagal_review']?></textarea>	
 
 
 			<br>

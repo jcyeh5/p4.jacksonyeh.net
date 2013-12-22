@@ -1,0 +1,20 @@
+2013-12-22 0:55:35 - INFO --> -------------------------- 
+2013-12-22 0:55:35 - INFO --> Controller/Method: users/p_signup 
+2013-12-22 0:55:36 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2013-12-22 0:55:36 - INFO --> From: Good Cookin' (webmaster@sample-app.com) 
+2013-12-22 0:55:36 - INFO --> To:   (),  
+2013-12-22 0:55:36 - INFO --> CC:  
+2013-12-22 0:55:36 - INFO --> BCC:  
+2013-12-22 0:55:36 - INFO --> Subject: Welcome to My 2 Cents 
+2013-12-22 0:55:36 - INFO --> Body: Hi , Welcome to My 2 Cents 
+2013-12-22 0:55:37 - INFO --> FAILED TO SEND EMAIL 
+2013-12-22 1:03:56 - INFO --> -------------------------- 
+2013-12-22 1:03:56 - INFO --> Controller/Method: users/p_signup 
+2013-12-22 1:03:56 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2013-12-22 1:03:56 - INFO --> From: Good Cookin' (webmaster@sample-app.com) 
+2013-12-22 1:03:56 - INFO --> To: Alton Brown (altonbrown@a.com),  
+2013-12-22 1:03:56 - INFO --> CC:  
+2013-12-22 1:03:56 - INFO --> BCC:  
+2013-12-22 1:03:56 - INFO --> Subject: Welcome to My 2 Cents 
+2013-12-22 1:03:56 - INFO --> Body: Hi Alton, Welcome to My 2 Cents 
+2013-12-22 1:03:57 - INFO --> FAILED TO SEND EMAIL 

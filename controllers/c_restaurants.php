@@ -78,17 +78,17 @@ class restaurants_controller extends base_controller {
 			
 		// CSS/JS includes
 		# Create an array of 1 or many client files to be included before the closing </body> tag
-		$client_files_head = Array(
+		$client_files_body = Array(
         "/js/jquery-1.10.2.min.js",
 		"/js/jstz-1.0.4.min.js",
 		"/js/jquery.form.js",
 		"/js/jquery.validationEngine-en.js",
 		"/js/jquery.validationEngine.js",
-		"/js/seagal.js"
+		"/js/restaurants_editadd.js"
         );
 		
 		# Use load_client_files to generate the links from the above array
-		$this->template->client_files_head = Utils::load_client_files($client_files_head);  						
+		$this->template->client_files_body = Utils::load_client_files($client_files_body);  						
 
 		
 		# if we are editing, we will need to look up existing data
@@ -233,7 +233,9 @@ class restaurants_controller extends base_controller {
         "/js/jquery-1.10.2.min.js",
 		"/js/jstz-1.0.4.min.js",
 		"/js/jquery.form.js",
-		"/js/seagal.js",
+		"/js/jquery.validationEngine-en.js",
+		"/js/jquery.validationEngine.js",
+		"/js/restaurants_review.js",
         );
 		# Use load_client_files to generate the links from the above array
 		$this->template->client_files_body = Utils::load_client_files($client_files_body);  		

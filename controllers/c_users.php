@@ -24,22 +24,60 @@ class users_controller extends base_controller {
         $this->template->title   = "Sign Up";
 
 		// CSS/JS includes
-		# Create an array of 1 or many client files to be included before the closing </body> tag
+		// CSS/JS includes
+		# Create an array of 1 or many client files to be included 
 		$client_files_head = Array(
         "/js/jquery-1.10.2.min.js",
-		"/js/jstz-1.0.4.min.js"
+		"/js/jstz-1.0.4.min.js",
         );
+
+		$client_files_body = Array(
+        "/js/jquery-1.10.2.min.js",
+		"/js/jquery.form.js",
+		"/js/jquery.validationEngine-en.js",
+		"/js/jquery.validationEngine.js",
+		"/js/seagal.js"
+        );
+		
 		# Use load_client_files to generate the links from the above array
-		$this->template->client_files_head = Utils::load_client_files($client_files_head);  
+		$this->template->client_files_head = Utils::load_client_files($client_files_head);  		
+		$this->template->client_files_body = Utils::load_client_files($client_files_body);  	
 
 	
-
 						
 		
         # Render template
         echo $this->template;
     }
 
+	public function does_email_exist() {
+	
+	$validateValue = $_GET['fieldValue'];
+       // echo '<pre>';
+      //  print_r($_REQUEST);
+       // echo '</pre>'; 
+	
+		# Check if email has already been registered
+			
+		# Query
+		$q = "	SELECT email			
+				FROM users
+				WHERE users.email = '".$validateValue."'";
+
+		# Run the query, store the results in the variable $profile
+		$profile = DB::instance(DB_NAME)->select_row($q);	
+			
+				
+		# if the email address already exists in the database
+		if ($profile != null){
+			echo '["signup_email", false, "This email is already registered"]';		
+		}
+		else{
+			echo '["signup_email", true, "Looks good!"]'; 
+		}	
+		
+	}
+	
 	public function p_signup() {
 		
 	
@@ -236,10 +274,32 @@ class users_controller extends base_controller {
 
 		# If they weren't redirected away, continue:
 
+
 		# Setup view
 		$this->template->content = View::instance('v_users_profile');
 		$this->template->title   = "Profile of".$this->user->first_name;
 
+		
+		
+		// CSS/JS includes
+		# Create an array of 1 or many client files to be included 
+		$client_files_head = Array(
+        "/js/jquery-1.10.2.min.js",
+		"/js/jstz-1.0.4.min.js",
+        );
+
+		$client_files_body = Array(
+        "/js/jquery-1.10.2.min.js",
+		"/js/jquery.form.js",
+		"/js/jquery.validationEngine-en.js",
+		"/js/jquery.validationEngine.js",
+		"/js/seagal.js"
+        );
+		
+		# Use load_client_files to generate the links from the above array
+		$this->template->client_files_head = Utils::load_client_files($client_files_head);  		
+		$this->template->client_files_body = Utils::load_client_files($client_files_body);  				
+		
 		# for error messages
 			$first_name_error = "";
 			$last_name_error = "";
