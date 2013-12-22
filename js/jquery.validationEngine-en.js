@@ -121,8 +121,11 @@
                 },
 				"does_email_exist": {
 					"url": "/users/does_email_exist",
-		
-				},				
+				},	
+				"does_visit_exist": {
+					"url": "/reviews/does_visit_exist",
+					 "extraDataDynamic": ['#ajax_restaurant_id', '#ajax_user_id'],
+				},
                 "pricerange": {
                     "regex": /^(\$|\$$|\$$$|\$$$$)$/,
                     "alertText": "* enter '$' , '$$' , '$$$' or '$$$$'"

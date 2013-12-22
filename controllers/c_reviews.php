@@ -12,6 +12,38 @@ class reviews_controller extends base_controller {
 		}
     }
 
+	
+	public function does_visit_exist() {
+	
+	$validateValue = $_GET['fieldValue'];
+	$restaurant_id = $_GET['ajax_restaurant_id'];
+	$user_id = $_GET['ajax_user_id'];
+	
+    //    echo '<pre>';
+    //    print_r($_REQUEST);
+    //    echo '</pre>'; 
+	
+		# Check if visit review has already been added
+			
+		# Query
+		$q = "	SELECT review_id			
+				FROM reviews
+				WHERE restaurant_id = '".$restaurant_id."' and user_id = '".$user_id."' and visit_date = '".$validateValue."'";
+
+		# Run the query, store the results in the variable $visit
+		$visit = DB::instance(DB_NAME)->select_row($q);	
+			
+				
+		# if the visit exists in the database
+		if ($visit!= null){
+			echo '["add_new_review_form_visit_date", false, "You have already added a review for this visit date"]';		
+		}
+		else{
+			echo '["add_new_review_form_visit_date", true, ""]'; 
+		}	
+		
+	}	
+	
     public function add() {
 	
 		# Associate this post with this user
@@ -21,60 +53,82 @@ class reviews_controller extends base_controller {
         $_POST['created']  = Time::now();
         $_POST['modified'] = Time::now();
 
-		
-        # Insert
-        # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
-        DB::instance(DB_NAME)->insert('reviews', $_POST);		
- 
-		# Set up the view
-		$view = View::instance('v_restaurants_review_add');
 
-		# Retrieve review that was just added
-		$p = "SELECT
-				review_id,
-				restaurant_id
-			FROM reviews
-			WHERE restaurant_id = ".$_POST['restaurant_id'].' 
-			ORDER BY reviews.created DESC limit 1';
-
-		# Run the query, store the results in the variable $review
-		$review = DB::instance(DB_NAME)->select_row($p);		
-		
-	
-		# Retrieve user name from database
-		$q = 'SELECT 
-				user_id,
-				first_name,
-				last_name
-			FROM users 
-
-			WHERE user_id = '.$this->user->user_id ;
-
-		# Run the query, store the results in the variable $user
-		
-		$user = DB::instance(DB_NAME)->select_row($q);
-
-
-		# LIKES
-		$r = 'SELECT
-				review_id,
-				COUNT(like_id) as num_likes
-			FROM likes
-			GROUP BY review_id';
-
-		# Run the query, store the results in the variable $likes
-		$likes = DB::instance(DB_NAME)->select_rows($r);
+		# Check if visit review has already been added
 			
+		# Query
+		$q = "	SELECT review_id			
+				FROM reviews
+				WHERE restaurant_id = '".$_POST['restaurant_id']."' and user_id = '".$this->user->user_id."' and visit_date = '".$_POST['visit_date']."'";
 
-		# Pass data to the view
-		$view->created = $_POST['created'];
-		$view->content = $_POST['content'];
- 		$view->user = $user;
-		$view->likes = $likes;
-		$view->review = $review;
+		# Run the query, store the results in the variable $visit
+		$visit = DB::instance(DB_NAME)->select_row($q);	
+			
+				
+		# if the visit exists in the database
+		if ($visit!= null){
+			# DO NOT ADD REVIEW, redirect back to page with error message
+			# Set up the view
+			$view = View::instance('v_restaurants_review_dont_add');			;		
+			# Render template
+			echo $view;
+			
+		}
+		else{
+			# If visit is not in database, then Insert
+			# Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
+			DB::instance(DB_NAME)->insert('reviews', $_POST);		
+	 
+			# Set up the view
+			$view = View::instance('v_restaurants_review_add');
+
+			# Retrieve review that was just added
+			$p = "SELECT
+					review_id,
+					restaurant_id
+				FROM reviews
+				WHERE restaurant_id = ".$_POST['restaurant_id'].' 
+				ORDER BY reviews.created DESC limit 1';
+
+			# Run the query, store the results in the variable $review
+			$review = DB::instance(DB_NAME)->select_row($p);		
+			
 		
-		# Render template
-        echo $view;
+			# Retrieve user name from database
+			$q = 'SELECT 
+					user_id,
+					first_name,
+					last_name
+				FROM users 
+
+				WHERE user_id = '.$this->user->user_id ;
+
+			# Run the query, store the results in the variable $user
+			
+			$user = DB::instance(DB_NAME)->select_row($q);
+
+
+			# LIKES
+			$r = 'SELECT
+					review_id,
+					COUNT(like_id) as num_likes
+				FROM likes
+				GROUP BY review_id';
+
+			# Run the query, store the results in the variable $likes
+			$likes = DB::instance(DB_NAME)->select_rows($r);
+				
+
+			# Pass data to the view
+			$view->created = $_POST['created'];
+			$view->content = $_POST['content'];
+			$view->user = $user;
+			$view->likes = $likes;
+			$view->review = $review;
+			
+			# Render template
+			echo $view;
+		}
 
     }
 

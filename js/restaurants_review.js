@@ -13,11 +13,11 @@ function validate(formData, jqForm, options) {
  
     for (var i=0; i < formData.length; i++) { 
         if (!formData[i].value) { 
-            alert('Please enter a value for both Username and Password'); 
+        //    alert('Please enter a value for both Username and Password'); 
             return false; 
         } 
     } 
-    alert('Both fields contain values.'); 
+   // alert('Both fields contain values.'); 
 	return true;
 }
 
@@ -51,7 +51,13 @@ $(document).ready(function() {
 		beforeSubmit: validate,
 		success: function(response) { 
 			// Load the results recieved from process.php into the results div
-				 $('#user_review_box').prepend(response);    
+				if (response == 'you already gave a review for this visit'){
+					$('#statusmessage').html(response);
+				}
+				else {
+					$('#user_review_box').prepend(response);
+					$('#statusmessage').html("");	
+				}
 		} ,
 		clearForm: true
 	}; 

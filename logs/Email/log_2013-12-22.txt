@@ -18,3 +18,13 @@
 2013-12-22 1:03:56 - INFO --> Subject: Welcome to My 2 Cents 
 2013-12-22 1:03:56 - INFO --> Body: Hi Alton, Welcome to My 2 Cents 
 2013-12-22 1:03:57 - INFO --> FAILED TO SEND EMAIL 
+2013-12-22 15:48:37 - INFO --> -------------------------- 
+2013-12-22 15:48:37 - INFO --> Controller/Method: users/p_signup 
+2013-12-22 15:48:38 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2013-12-22 15:48:38 - INFO --> From: Good Cookin' (webmaster@sample-app.com) 
+2013-12-22 15:48:38 - INFO --> To: Bobby Flay (bobbyflay@b.com),  
+2013-12-22 15:48:38 - INFO --> CC:  
+2013-12-22 15:48:38 - INFO --> BCC:  
+2013-12-22 15:48:38 - INFO --> Subject: Welcome to My 2 Cents 
+2013-12-22 15:48:38 - INFO --> Body: Hi Bobby, Welcome to My 2 Cents 
+2013-12-22 15:48:39 - INFO --> FAILED TO SEND EMAIL 

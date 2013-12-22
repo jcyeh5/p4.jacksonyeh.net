@@ -53,9 +53,9 @@ class users_controller extends base_controller {
 	public function does_email_exist() {
 	
 	$validateValue = $_GET['fieldValue'];
-       // echo '<pre>';
+      //  echo '<pre>';
       //  print_r($_REQUEST);
-       // echo '</pre>'; 
+      //  echo '</pre>'; 
 	
 		# Check if email has already been registered
 			
@@ -70,7 +70,7 @@ class users_controller extends base_controller {
 				
 		# if the email address already exists in the database
 		if ($profile != null){
-			echo '["signup_email", false, "This email is already registered"]';		
+			echo '["signup_email", false, "This email account is already registered"]';		
 		}
 		else{
 			echo '["signup_email", true, "Looks good!"]'; 

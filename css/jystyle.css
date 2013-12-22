@@ -50,10 +50,14 @@ a:active , a{
 }
 
 .restaurant_name {
-		font-size: x-large;
-		color: blue;
+	font-size: x-large;
+	color: blue;
 }
 
+#statusmessage {
+	font-size: x-large;
+	color: red;
+}
 
 /*-------------------------------------------------------------------------------------------------
 v_reviews_users
