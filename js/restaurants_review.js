@@ -63,4 +63,7 @@ $(document).ready(function() {
 	}; 
 	$('#add_new_review_form').ajaxForm(options);
 
+
+	//$('#add_new_review_form_visit_date').datepicker({dateFormat: "yy-mm-dd"});
+		
 }); 

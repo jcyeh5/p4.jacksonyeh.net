@@ -75,10 +75,16 @@
 		<?php foreach($reviews as $review): ?>
 			<div class = "review">
 				<article>		
+					<div class="review_heading_left">
 					<p class="review_author"><?=$review['first_name']?> <?=$review['last_name']?></p>
 					<time class="reviw_time" datetime="<?=Time::display($review['created'],'Y-m-d H:i')?>">
 						<?=Time::display($review['created'])?>
 					</time>
+					</div>
+					<div class="review_heading_right">
+					<span class="list_label">Restaurant Rating:</span> <?=$review['rating']?><br>
+					<span class="list_label">Visit Date:</span> <?=$review['visit_date']?><br>
+					</div>
 					
 					<p class="review_content"><?=$review['content']?></p>
 

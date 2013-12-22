@@ -235,7 +235,7 @@ class restaurants_controller extends base_controller {
 		"/js/jquery.form.js",
 		"/js/jquery.validationEngine-en.js",
 		"/js/jquery.validationEngine.js",
-		"/js/restaurants_review.js",
+		"/js/restaurants_review.js"
         );
 		# Use load_client_files to generate the links from the above array
 		$this->template->client_files_body = Utils::load_client_files($client_files_body);  		
@@ -275,6 +275,8 @@ class restaurants_controller extends base_controller {
 				reviews.review_id,
 				reviews.content,
 				reviews.created,
+				reviews.rating,
+				reviews.visit_date,
 				reviews.user_id AS review_user_id,
 				users.first_name,
 				users.last_name,

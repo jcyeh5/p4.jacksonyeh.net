@@ -264,7 +264,18 @@ restaurants review
 	padding-bottom: 0px;
 	margin-bottom: 0px;
 }
+.review_heading_left {
+	width: 560px;
 
+	display: inline-block;
+}
+.review_heading_right {
+	width: 150px;
+	background: gold;
+	border: thin solid red;
+	padding: 15px;
+	display: inline-block;
+}
 
 .review_content {
 	margin-top: 5px;
