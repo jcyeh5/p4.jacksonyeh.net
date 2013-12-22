@@ -56,20 +56,40 @@ $('#post-btn').click(function() {
 Document ready, start up
 -------------------------------------------------------------------------------------------------*/
 $(document).ready(function() { 
-var options = { 
-    type: 'post',
-    url: '/reviews/add',
-	beforeSubmit: validate,
-    success: function(response) { 
-        // Load the results recieved from process.php into the results div
-             $('#user_review_box').prepend(response);    
-    } ,
-	clearForm: true
-}; 
+	var options = { 
+		type: 'post',
+		url: '/reviews/add',
+		beforeSubmit: validate,
+		success: function(response) { 
+			// Load the results recieved from process.php into the results div
+				 $('#user_review_box').prepend(response);    
+		} ,
+		clearForm: true
+	}; 
 
-// Then attach the ajax form plugin to this form so that when it's submitted, 
-// it will be submitted via ajax    
-$('#add_new_review').ajaxForm( options ); 
+	// Then attach the ajax form plugin to this form so that when it's submitted, 
+	// it will be submitted via ajax    
+	$('#add_new_review').ajaxForm( options ); 
+
+	// Validating Add Restaurant Form
+	$('#add_restaurant_form').validationEngine( {'custom_error_messages' : {
+        '#restaurant_add_seagal_rating' : {
+            'required': {
+                'message': "Must enter a value between 1 and 10, inclusive."
+            },
+            'custom[min]': {
+                'message': "test"
+            }
+        },
+        '.someClass': {
+            'equals': {
+                'message': "test"
+            }
+        },
+        'required': {
+            'message': "This is required"
+        }
+    }}  ); 
 
 
 }); 

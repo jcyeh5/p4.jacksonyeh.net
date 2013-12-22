@@ -16,7 +16,7 @@
 	
 							
 							<!-- Display LIKE button  -->
-							<li><a href='/reviews/like/<?=$review['review_id']?>/<?=$user['user_id']?> '><img class="like_img" src="/images/like.png" alt="like this review"></a></li>
+							<li><a href='/reviews/like/<?=$review['review_id']?>/<?=$user['user_id']?>/<?=$review['restaurant_id']?> '><img class="like_img" src="/images/like.png" alt="like this review"></a></li>
 
 							<!-- If there are any LIKEs for this post -->
 							<?php foreach ($likes as $like): ?>

@@ -1,0 +1,392 @@
+/*-------------------------------------------------------------------------------------------------
+General
+-------------------------------------------------------------------------------------------------*/
+
+body {
+	margin-left: 5%;
+	margin-right: 5%;  
+	background: rgb(234,219,149);
+	font-family: Calibri,Arial,sans-serif;	
+
+} 
+
+a:visited, a:hover,
+a:active , a{  
+ 	color: navy;  
+	text-decoration: none;
+}
+
+
+
+#wrapper {
+	width:  900px;
+	background: #A0A0A0 ;
+	margin: 0 auto;
+}
+
+.hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.mainframe {
+	border: thin solid black;
+	background: #FFFFFF;
+	padding: 1em;
+	margin: 1px;
+}
+
+
+
+.listitem {
+	width: 200px;
+	padding: 2px;
+	background: beige;
+	display: inline-block;
+}
+.list_label{
+	font-weight: bold;
+}
+
+.restaurant_name {
+		font-size: x-large;
+		color: blue;
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+v_reviews_users
+-------------------------------------------------------------------------------------------------*/
+
+.listbox {
+	padding: 3px;
+	border-right: thick solid maroon;
+	border-bottom: thin solid maroon;	
+	background: gray;
+}
+
+.review_user_list_date {
+	width: 412px;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------
+v_restaurant_index
+-------------------------------------------------------------------------------------------------*/
+.restaurant_Listitem {
+	width: 832px;
+
+	padding: 0px;
+}
+.restaurant_Listitem_left{
+	width: 390px;
+	margin: 0px;
+	padding: 5px;
+	padding-left: 14px;
+}
+.restaurant_Listitem_right {
+	width: 404px;
+	margin: 0px;
+	padding: 5px;
+}
+
+
+a {
+	outline: none;
+}
+
+a img {
+	outline: none;
+	border: 0;
+}
+
+
+
+
+.error {
+	color: #800000;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Header
+-------------------------------------------------------------------------------------------------*/
+
+#headerimage {
+	display: block;
+	background-image: url(/images/goodcookin_masthead.png);  
+	height: 160px;  
+	width:  900px;
+	text-indent: -9999px;
+
+}
+
+#headernav {
+	background: gold;
+	border-bottom: medium solid orange;	
+}
+
+#headernav ul {  
+	display: inline;  
+	background: gold;
+}  
+
+#headernav ul li {  
+	display: inline;
+	background-position: left;  
+	background-repeat: no-repeat;  
+	padding-left: 20px;
+	padding-right:20px;
+	background: gold;
+	font-size: large;
+	font-weight: bold;
+	margin: 0;
+}  
+
+#headernav ul a {
+	font-size: 100%;  
+	font-weight: normal; 
+ 	color: navy;
+	text-decoration: none;
+}
+
+.#headernav ul a:visited {  
+ 	color: white;  
+
+}
+#headernav ul a:hover {  
+	color: yellow;  
+
+}
+#headernav ul a:active {  
+	color: orange;  
+}
+
+#indextopdiv {
+	border-bottom: thin solid orange;
+}
+
+#indexbottomdiv {
+	padding: 1em;
+}
+
+/*-------------------------------------------------------------------------------------------------
+v_restaurants_add
+-------------------------------------------------------------------------------------------------*/
+.restaurantinfobox{
+	width: 270px;
+	background: beige;
+	display: inline-block;
+
+}
+
+/*-------------------------------------------------------------------------------------------------
+restaurants review
+-------------------------------------------------------------------------------------------------*/
+
+#restaurantinfobox {
+	width: 824px;
+	padding: 10px;
+	background: beige;
+	border: thin solid orange;
+}
+
+#restaurantinfobox_left{
+	width: 340px;
+	background: beige;
+	display: inline-block;
+
+}
+#restaurantinfobox_middle{
+	width: 300px;
+	background: beige;
+	display: inline-block;
+}
+#restaurantinfobox_right{
+	width: 176px;
+	background: beige;
+	display: inline-block;
+}
+
+#seagal_rating_box{
+	background: maroon;
+	width: 160px;
+	color: white;
+	margin: 5px;
+	text-align: center;
+	border: thin solid gold;
+}
+
+#seagal_rating_label {
+	font-size: x-large;
+	padding: 10px;
+	text-decoration: underline;
+}
+
+#seagal_rating {
+	font-weight: bold;
+	font-size: 60px;
+}
+
+#newpostframe {
+	border: thin solid black;
+	background: #FFFFFF;	
+	
+}
+
+#newpostform {
+	border: thin solid black;
+	background: gray;
+	margin: 5px;
+	padding: 5px;	
+	margin: 5px;
+	width: 856px;
+}
+
+.review_author {
+	font-size: x-large;
+	font-weight: bold;
+	color: navy;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+
+.review_content {
+	margin-top: 5px;
+	padding-top: 1em;
+	border-top: thin solid blue;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: large;
+}
+
+#content {
+	margin: 5px;
+	padding: 5px;
+
+}
+
+#contenttextarea {
+	margin: 5px;
+	padding: 5px;
+	width: 836px;
+
+}
+
+.review {
+	border: thin solid black;
+	background: #FFFFFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	margin: 5px;
+}
+
+.like_img {
+	padding-bottom: 4px;
+}
+
+.likes_count {
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 2px;
+}
+
+.likelink:hover {
+	background: url('/images/liked.png') bottom;
+}
+.review_submenu {
+	text-align: right;
+}
+
+.review_submenu ul {
+	display: inline;  
+}
+
+.review_submenu ul li {  
+	display: inline;
+}
+.review_submenu ul li a {
+	text-decoration: none;
+}
+
+.review_users_name {
+	font-size: x-large;
+	border-bottom: thin solid orange;
+	
+}
+
+/*-------------------------------------------------------------------------------------------------
+v_users_profile
+-------------------------------------------------------------------------------------------------*/
+#profileframe {
+	border: thin solid black;
+	background: white;
+	padding: 1em;
+	margin: 5px;
+}
+
+#profiletopdiv {
+	border-bottom: thin solid blue;
+}
+
+#profilebottomdiv {
+	padding: 1em;
+}
+
+/*-------------------------------------------------------------------------------------------------
+v_reviews_user
+-------------------------------------------------------------------------------------------------*/
+.reviews_user_listbox {
+	padding: 3px;
+	border-top: thin solid gray;
+	border-left: thin solid gray;
+	border-right: thick solid maroon;
+	border-bottom: thin solid maroon;	
+	background: beige;
+}
+
+.review_user_list_city {
+	width: 130px;
+}
+
+.review_users_list_date {
+width: 240px;
+}
+/*-------------------------------------------------------------------------------------------------
+Login Screen
+-------------------------------------------------------------------------------------------------*/
+
+#loginframe {
+	border: thin solid black;
+	background: #FFFFFF;
+	
+}
+
+#loginform {
+	border: thin solid orange;
+	background: gray;
+	margin: 1em;
+	padding: 1em;
+	width: 200px;
+	display:inline-block;
+
+}
+
+
+#welcometextdiv {
+	width: 500px;
+	display:inline-block;
+}
+
+#welcometextdiv p {
+	padding: 1em;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: large;
+}
+
+#signupbuttondiv {
+	text-align: right;
+
+}

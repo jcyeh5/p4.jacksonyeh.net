@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title><?php if(isset($title)) echo $title; ?></title>
-	<link href= "/css/style.css" type="text/css" rel="stylesheet"/>
+	<link href= "/css/jystyle.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="/css/validationEngine.jquery.css" type="text/css"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 					
 	<!-- Controller Specific JS/CSS -->

@@ -34,7 +34,8 @@ class reviews_controller extends base_controller {
 				review_id,
 				restaurant_id
 			FROM reviews
-			WHERE restaurant_id = ".$_POST['restaurant_id'];
+			WHERE restaurant_id = ".$_POST['restaurant_id'].' 
+			ORDER BY reviews.created DESC limit 1';
 
 		# Run the query, store the results in the variable $review
 		$review = DB::instance(DB_NAME)->select_row($p);		
@@ -217,18 +218,18 @@ class reviews_controller extends base_controller {
 
 
 
-	public function like($post_id, $user_id) {
+	public function like($review_id, $user_id, $restaurant_id) {
 	
 	#fill in $input array
 	
 		
-		$compoundindex = $post_id.$user_id;
+		$compoundindex = $review_id.$user_id;
 		$compoundindex = DB::instance(DB_NAME)->sanitize($compoundindex);
 		
         # Insert
 		$input = Array(	'like_id' => $compoundindex,
 						'created' => Time::now(), 
-						'post_id' => $post_id,
+						'review_id' => $review_id,
 						'user_id' => $user_id,
 						);
 						
@@ -236,7 +237,7 @@ class reviews_controller extends base_controller {
         DB::instance(DB_NAME)->update_or_insert_row('likes', $input);			
 
 		# Send them to the posts page
-		Router::redirect("/posts/index/");			
+		Router::redirect("/restaurants/review/".$restaurant_id);			
 	}
 	
 
