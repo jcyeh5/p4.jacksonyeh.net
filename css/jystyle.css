@@ -10,10 +10,14 @@ body {
 
 } 
 
+a {
+	text-decoration: none;
+}
+
 a:visited, a:hover,
 a:active , a:link {  
  	color: navy;  
-	text-decoration: none;
+	
 }
 
 
