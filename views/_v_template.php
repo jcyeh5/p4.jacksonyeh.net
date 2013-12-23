@@ -25,7 +25,7 @@
 					<?php if($user): ?>
 						<li id="mainnav_postopinions"><a href='/restaurants/index'>Review Bistro</a></li>
 
-						<?php if ($user->email=='gordonramsey@g.com'):?>
+						<?php if ($user->email=='admin@g.com'):?>
 						<li id="mainnav_postopinions"><a href='/restaurants/add'>Add Bistro</a></li>
 						<li id="mainnav_postopinions"><a href='/restaurants/index/edit'>Edit Bistro</a></li>						
 						<?php endif; ?>

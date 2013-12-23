@@ -1,9 +1,9 @@
 <div class="mainframe">
 
 	<?php if($purpose == 'edit'): ?>
-		<h1> Edit A Bistro </h2>
+		<h1> Edit A Bistro </h1>
 	<?php else: ?>
-		<h1> Review A Bistro </h2>
+		<h1> Review A Bistro </h1>
 		<h3> Here is a hand picked list of places that I would personally recommend. </h3>
 		- 'Chef' Steven Seagal
 	<?php endif; ?>		

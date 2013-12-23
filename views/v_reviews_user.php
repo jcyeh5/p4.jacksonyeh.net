@@ -13,7 +13,7 @@
 		<!-- If there is no reviews-->
 		<?php  if (empty($reviews) ): ?>
 				<p> there are no reviews for this user </p>
-			</div>
+			
 		<?php endif; ?>		 
 		 
 		<?php foreach($reviews as $review): ?>
@@ -30,7 +30,7 @@
 						Rating: <?=$review['rating']?> 
 				</div>
 				<div class="review_users_list_date listitem">
-						Date: <span><time datetime="<?=Time::display($review['created'],'Y-m-d H:i')?>"> <?=Time::display($review['created'])?> </time>
+						Date: <time datetime="<?=Time::display($review['created'],'Y-m-d H:i')?>"> <?=Time::display($review['created'])?> </time>
 				</div>	
 
 			</div>

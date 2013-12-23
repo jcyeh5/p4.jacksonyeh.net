@@ -10,19 +10,19 @@
 		<?php endif; ?>	
 
 		<span class="list_label">
-		Restaurant Name:&nbsp &nbsp <input type='text' name='name' size='50' value="<?=$restaurant['name']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>
+		Restaurant Name:&nbsp; &nbsp; <input type='text' name='name' size='50' value="<?=$restaurant['name']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>
 
-		Address:&nbsp &nbsp <input type='text' name='address' size='50'value="<?=$restaurant['address']?>"class="validate[required] text-input" data-prompt-position ="centerRight"><br><br>
+		Address:&nbsp; &nbsp; <input type='text' name='address' size='50' value="<?=$restaurant['address']?>" class="validate[required] text-input" data-prompt-position ="centerRight"><br><br>
 
-		City:&nbsp &nbsp <input type='text' name='city' value="<?=$restaurant['city']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>		
+		City:&nbsp; &nbsp; <input type='text' name='city' value="<?=$restaurant['city']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>		
 
-		State: &nbsp &nbsp <input type='text' name='state' size='2' value="<?=$restaurant['state']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>	
+		State: &nbsp; &nbsp; <input type='text' name='state' size='2' value="<?=$restaurant['state']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>	
 
-		Zip  &nbsp &nbsp <input type='text' name='zip' size='5' value="<?=$restaurant['zip']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>	
+		Zip  &nbsp; &nbsp; <input type='text' name='zip' size='5' value="<?=$restaurant['zip']?>" class="validate[required] text-input" data-prompt-position ="centerRight" ><br><br>	
 			
-		Phone &nbsp &nbsp <input type='text' name='phone' value="<?=$restaurant['phone']?>" class="validate[required] text-input" data-prompt-position ="centerRight"><br><br>	
+		Phone &nbsp; &nbsp; <input type='text' name='phone' value="<?=$restaurant['phone']?>" class="validate[required] text-input" data-prompt-position ="centerRight"><br><br>	
 			
-		website &nbsp &nbsp <input type='text' name='website' value="<?=$restaurant['website']?>" class="validate[custom[url]] text-input" data-prompt-position ="centerRight"  ><br><br>				
+		website &nbsp; &nbsp; <input type='text' name='website' value="<?=$restaurant['website']?>" class="validate[custom[url]] text-input" data-prompt-position ="centerRight"  ><br><br>				
 	
 		<div class="restaurantinfobox">	
 			Category<br>

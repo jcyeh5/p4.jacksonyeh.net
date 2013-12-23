@@ -55,20 +55,20 @@
 		<span class="list_label">Review:</span> <?=$restaurant['seagal_review']?><br>
 		<br>	
 	</div>	
+	<br>
 	<!-- Review submission form -->
 	Submit Your Review: <br>
 	<form id="add_new_review_form">
-		<label for='content'>New Post:</label><br>
 		<input type='hidden' name='user_id' id='ajax_user_id' value=<?=$user->user_id?> >
 		<input type='hidden' name='restaurant_id' id="ajax_restaurant_id" value=<?=$restaurant['restaurant_id'] ?> >	
 		<div id='review_entry_status'></div>
 		<textarea name='content' id="contenttextarea" class="validate[required] text-input"  ></textarea>
-		<label for='rating'>Rating (0-10):</label>
+		<label for='rating'>Rating (1-10):</label>
 		<input type='text' id='add_new_review_form_rating' size=2 name='rating' class="validate[required , custom[integer]] min[1] max[10]" ><br>
 		<label for='visit_date'>Visit Date (YYYY-MM-DD):</label>
-		<input type='date' id='add_new_review_form_visit_date' name='visit_date' class='validate[required, custom[date]]' ><br>
+		<input type='text' id='add_new_review_form_visit_date' name='visit_date' class='validate[required, custom[date], past[now]]' ><br>
 		<br>		
-		<input type='submit' id='post-btn' value='POST'>
+		<input type='submit' id='post-btn' value='POST REVIEW'>
 	</form>
 	<div id="statusmessage"></div>
 	<div id="user_review_box">

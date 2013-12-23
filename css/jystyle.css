@@ -11,7 +11,7 @@ body {
 } 
 
 a:visited, a:hover,
-a:active , a{  
+a:active , a:link {  
  	color: navy;  
 	text-decoration: none;
 }
