@@ -1,7 +1,7 @@
 
-This is a restuarant review guide by Steven Seagal, along the lines of Zagat's.
+This is a restaurant review guide by Steven Seagal, along the lines of Zagat's.
 Users are invited to log in to hear Steven's words of culinary wisdom and perhaps even
-share their opinions of the places that STeven recommends.
+share their opinions of the places that Steven recommends.
 
 The application includes:
 	- a lot of validation via javascript: 
