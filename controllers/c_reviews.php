@@ -15,10 +15,13 @@ class reviews_controller extends base_controller {
 	
 	public function does_visit_exist() {
 	
-	$validateValue = $_GET['fieldValue'];
-	$restaurant_id = $_GET['ajax_restaurant_id'];
-	$user_id = $_GET['ajax_user_id'];
-	
+		$validateValue = $_GET['fieldValue'];
+		$restaurant_id = $_GET['ajax_restaurant_id'];
+		$user_id = $_GET['ajax_user_id'];
+
+   		$validateValue = DB::instance(DB_NAME)->sanitize($validateValue);
+   		$restaurant_id = DB::instance(DB_NAME)->sanitize($restaurant_id);
+   		$user_id = DB::instance(DB_NAME)->sanitize($user_id);		
     //    echo '<pre>';
     //    print_r($_REQUEST);
     //    echo '</pre>'; 
@@ -46,6 +49,8 @@ class reviews_controller extends base_controller {
 	
     public function add() {
 	
+		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
+		
 		# Associate this post with this user
         $_POST['user_id']  = $this->user->user_id;
 
@@ -53,6 +58,10 @@ class reviews_controller extends base_controller {
         $_POST['created']  = Time::now();
         $_POST['modified'] = Time::now();
 
+		# strip out leading '0' on Rating if it exists
+		if (substr($_POST['rating'] , 0, 1) == '0') {
+			$_POST['rating'] =  (substr($_POST['rating'] , 1, 1));
+		}
 
 		# Check if visit review has already been added
 			
@@ -122,6 +131,8 @@ class reviews_controller extends base_controller {
 			# Pass data to the view
 			$view->created = $_POST['created'];
 			$view->content = $_POST['content'];
+			$view->rating = $_POST['rating'];
+			$view->visit_date = $_POST['visit_date'];
 			$view->user = $user;
 			$view->likes = $likes;
 			$view->review = $review;
@@ -132,23 +143,13 @@ class reviews_controller extends base_controller {
 
     }
 
-    public function p_add() {
- 
-
-
-        # Insert
-        # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
-        DB::instance(DB_NAME)->insert('posts', $_POST);
-
-		# Send back to posts
-		Router::redirect("/posts/index");
-
-    }
 	
    public function delete($review_id, $restaurant_id) {
 
    
    		$review_id = DB::instance(DB_NAME)->sanitize($review_id);
+   		$restaurant_id = DB::instance(DB_NAME)->sanitize($restaurant_id);	
+		
 		# Delete this review
 		$where_condition = 'WHERE review_id = '.$review_id;
 		DB::instance(DB_NAME)->delete('reviews', $where_condition);
@@ -158,56 +159,13 @@ class reviews_controller extends base_controller {
 
     }	
 	
-	public function index() {
-	
-		# Set up the View
-		$this->template->content = View::instance('v_posts_index');
-		$this->template->title   = "All Posts";
-
-		# POSTS
-		$q = 'SELECT 
-				posts.post_id,
-				posts.content,
-				posts.created,
-				posts.user_id AS post_user_id,
-				users_users.user_id AS follower_id,
-				users.first_name,
-				users.last_name
-			FROM posts
-			INNER JOIN users_users 
-				ON posts.user_id = users_users.user_id_followed
-			INNER JOIN users 
-				ON posts.user_id = users.user_id
-			WHERE users_users.user_id = '.$this->user->user_id .'  
-			ORDER BY posts.created DESC';
-
-		# Run the query, store the results in the variable $posts
-		$posts = DB::instance(DB_NAME)->select_rows($q);
 
 
-		# LIKES
-		$p = 'SELECT
-				post_id,
-				COUNT(like_id) as num_likes
-			FROM likes
-			GROUP BY post_id';
 
-		# Run the query, store the results in the variable $likes
-		$likes = DB::instance(DB_NAME)->select_rows($p);
-			
-		# Pass data to the View
-		$this->template->content->posts = $posts;
-		$this->template->content->likes = $likes;		
-		$this->template->content->user = $this->user;
-		
-		# Render the View
-		echo $this->template;
-
-	}
+	public function user($user_id=null) {
 
 
-	public function user() {
-	
+   		$user_id = DB::instance(DB_NAME)->sanitize($user_id);	
 		# Set up the View
 		$this->template->content = View::instance("v_reviews_user");
 		$this->template->title   = "User's Reviews";	
@@ -216,7 +174,7 @@ class reviews_controller extends base_controller {
 		# Query
 		$p = 'SELECT first_name, last_name, city, state
 				FROM users
-				WHERE users.user_id = '.$this->user->user_id ;
+				WHERE users.user_id = '.$user_id ;
 
 		# Run the query, store the results in the variable $user
 		$user = DB::instance(DB_NAME)->select_row($p);				
@@ -226,13 +184,11 @@ class reviews_controller extends base_controller {
 		# Get a list of reviews given by user
 		$q = 'SELECT reviews.restaurant_id as restaurant_id, restaurants.name as name, restaurants.city as city, restaurants.state as state, reviews.rating as rating , reviews.created as created
 			FROM reviews join restaurants on restaurants.restaurant_id = reviews.restaurant_id
-			WHERE reviews.user_id = '.$this->user->user_id.' order by reviews.created DESC';
+			WHERE reviews.user_id = '.$user_id.' order by reviews.created DESC';
 						
 		# Run the query, store the results in the variable $users
 		$reviews = DB::instance(DB_NAME)->select_rows($q);		
 		
-	
-	
 			
 		# Pass data to the View
 		$this->template->content->user = $user;

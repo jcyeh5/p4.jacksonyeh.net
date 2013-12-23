@@ -24,6 +24,9 @@ $(document).ready(function() {
 	if ($('#users_signup_form').length > 0) {
 		$('#users_signup_form').validationEngine();
 	}
+	if ($('#loginform').length > 0) {
+		$('#loginform').validationEngine();
+	}	
 
 }); 
 

@@ -6,70 +6,71 @@
 		</div>
 	<?php endif; ?>
 
+	<!-- Restaurant Info -->
+	<div id="restaurantinfobox">
+		<div id="restaurantinfobox_left">
+			<span class="restaurant_name">
+				<?=$restaurant['name']?><br>
+			</span>
+			<?=$restaurant['address']?><br>
+			<?=$restaurant['city']?>, <?=$restaurant['state']?> <?=$restaurant['zip']?><br>
+			<?=$restaurant['phone']?><br>
+			<?=$restaurant['website']?><br><br><br>
 
-<div id="restaurantinfobox">
-	<div id="restaurantinfobox_left">
-		<span class="restaurant_name">
-			<?=$restaurant['name']?><br>
-		</span>
-		<?=$restaurant['address']?><br>
-		<?=$restaurant['city']?>, <?=$restaurant['state']?> <?=$restaurant['zip']?><br>
-		<?=$restaurant['phone']?><br>
-		<?=$restaurant['website']?><br><br><br>
-
-		<span class="list_label">Category:</span>  <?=$restaurant['category']?>
-		<br>	
-		<span class="list_label">Accept Credit Cards:</span>  <?=$restaurant['credit_cards']?>
-		<br>
-		<span class="list_label">Price Range:</span>  <?=$restaurant['price_range']?>
-		<br>
-</div>	
-	<div id="restaurantinfobox_middle">
-		<span class="list_label">Ambience:</span> <?=$restaurant['ambience']?>
-		<br>	
-		<span class="list_label">Attire:</span> <?=$restaurant['attire']?>
-		<br>		
-		<span class="list_label">Good For Groups:</span> <?=$restaurant['groups']?>
-		<br>
-		<span class="list_label">Good For Kids:</span> <?=$restaurant['kids']?>
-		<br>
-		<span class="list_label">Take Reservations:</span> <?=$restaurant['reservations']?>
-		<br>
-		<span class="list_label">Delivery:</span> <?=$restaurant['delivery']?>
-		<br>
-		<span class="list_label">Takeout:</span> <?=$restaurant['takeout']?>
-		<br>
-		<span class="list_label">Waiter Serice:</span> <?=$restaurant['waiter']?>
-		<br>
-		<span class="list_label">Outdoor Seating:</span> <?=$restaurant['outdoor']?>
-		<br>
-</div>
-	<div id="restaurantinfobox_right">	
-		<div id="seagal_rating_box">
-			<span id="seagal_rating_label">Seagal Rating:</span><br>
-			<span id="seagal_rating"><?=$restaurant['seagal_rating']?></span><br>
-		</div>
-		<br><br><br><br><br>
-	</div>	
-	<br>	<br>
-	<span class="list_label">Review:</span> <?=$restaurant['seagal_review']?><br>
-	<br>	
-	</div>	
-		Submit Your Review: <br>
-		<form id="add_new_review_form">
-			<label for='content'>New Post:</label><br>
-			<input type='hidden' name='user_id' id='ajax_user_id' value=<?=$user->user_id?> >
-			<input type='hidden' name='restaurant_id' id="ajax_restaurant_id" value=<?=$restaurant['restaurant_id'] ?> >	
-			<div id='review_entry_status'></div>
-			<textarea name='content' id="contenttextarea" class="validate[required] text-input"  ></textarea>
-			<label for='rating'>Rating (0-10):</label>
-			<input type='text' id='add_new_review_form_rating' size=2 name='rating' class="validate[required , custom[integer]] min[1] max[10]" ><br>
-			<label for='visit_date'>Visit Date (YYYY-MM-DD):</label>
-			<input type='date' id='add_new_review_form_visit_date' name='visit_date' class='validate[required, custom[date]]' ><br>
+			<span class="list_label">Category:</span>  <?=$restaurant['category']?>
+			<br>	
+			<span class="list_label">Accept Credit Cards:</span>  <?=$restaurant['credit_cards']?>
+			<br>
+			<span class="list_label">Price Range:</span>  <?=$restaurant['price_range']?>
+			<br>
+		</div>	
+		<div id="restaurantinfobox_middle">
+			<span class="list_label">Ambience:</span> <?=$restaurant['ambience']?>
+			<br>	
+			<span class="list_label">Attire:</span> <?=$restaurant['attire']?>
 			<br>		
-			<input type='submit' id='post-btn' value='POST'>
-		</form>
-		<div id="statusmessage"></div>
+			<span class="list_label">Good For Groups:</span> <?=$restaurant['groups']?>
+			<br>
+			<span class="list_label">Good For Kids:</span> <?=$restaurant['kids']?>
+			<br>
+			<span class="list_label">Take Reservations:</span> <?=$restaurant['reservations']?>
+			<br>
+			<span class="list_label">Delivery:</span> <?=$restaurant['delivery']?>
+			<br>
+			<span class="list_label">Takeout:</span> <?=$restaurant['takeout']?>
+			<br>
+			<span class="list_label">Waiter Serice:</span> <?=$restaurant['waiter']?>
+			<br>
+			<span class="list_label">Outdoor Seating:</span> <?=$restaurant['outdoor']?>
+			<br>
+		</div>
+		<div id="restaurantinfobox_right">	
+			<div id="seagal_rating_box">
+				<span id="seagal_rating_label">Seagal Rating:</span><br>
+				<span id="seagal_rating"><?=$restaurant['seagal_rating']?></span><br>
+			</div>
+			<br><br><br><br><br>
+		</div>	
+		<br><br>
+		<span class="list_label">Review:</span> <?=$restaurant['seagal_review']?><br>
+		<br>	
+	</div>	
+	<!-- Review submission form -->
+	Submit Your Review: <br>
+	<form id="add_new_review_form">
+		<label for='content'>New Post:</label><br>
+		<input type='hidden' name='user_id' id='ajax_user_id' value=<?=$user->user_id?> >
+		<input type='hidden' name='restaurant_id' id="ajax_restaurant_id" value=<?=$restaurant['restaurant_id'] ?> >	
+		<div id='review_entry_status'></div>
+		<textarea name='content' id="contenttextarea" class="validate[required] text-input"  ></textarea>
+		<label for='rating'>Rating (0-10):</label>
+		<input type='text' id='add_new_review_form_rating' size=2 name='rating' class="validate[required , custom[integer]] min[1] max[10]" ><br>
+		<label for='visit_date'>Visit Date (YYYY-MM-DD):</label>
+		<input type='date' id='add_new_review_form_visit_date' name='visit_date' class='validate[required, custom[date]]' ><br>
+		<br>		
+		<input type='submit' id='post-btn' value='POST'>
+	</form>
+	<div id="statusmessage"></div>
 	<div id="user_review_box">
 		<!-- Display list of reviews -->
 		<?php foreach($reviews as $review): ?>

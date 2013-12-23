@@ -30,7 +30,7 @@
 					<!-- else editing restaurant info -->					
 						<span id="restaurant_name" class="restaurant_name"><a  href='/restaurants/review/<?=$restaurant['restaurant_id']?>'><?=$restaurant['name']?></a></span><br>
 					<?php endif; ?>						
-						<span class="list_label">
+					<span class="list_label">
 						Category:
 					</span> 
 					<?=$restaurant['category']?> <br>
@@ -41,11 +41,9 @@
 				
 				</div>
 				<div class="restaurant_Listitem_right listitem">
-				
-						<?=$restaurant['address']?> <br>
-						<?=$restaurant['city']?>, <?=$restaurant['state']?>  <?=$restaurant['zip']?>
-						<br><br>
-		
+					<?=$restaurant['address']?> <br>
+					<?=$restaurant['city']?>, <?=$restaurant['state']?>  <?=$restaurant['zip']?>
+					<br><br>
 				</div>
 			</div>
 		</div>

@@ -19,7 +19,7 @@ class index_controller extends base_controller {
 			$this->template->content = View::instance('v_index_index');
 			
 		# Now set the <title> tag
-			$this->template->title = "Gordon's Good Eats";
+			$this->template->title = "Good Cookin";
 			
 		# Get and print the current timestamp
 		//echo Time::now();

@@ -58,6 +58,9 @@ a:active , a{
 	font-size: x-large;
 	color: red;
 }
+.stat {
+	color: red;
+}
 
 /*-------------------------------------------------------------------------------------------------
 v_reviews_users
@@ -150,17 +153,17 @@ Header
 
 #headernav ul a {
 	font-size: 100%;  
-	font-weight: normal; 
+	font-weight: bold; 
  	color: navy;
 	text-decoration: none;
 }
 
 #headernav ul a:visited {  
- 	color: white;  
+ 	color: navy;  
 
 }
 #headernav ul a:hover {  
-	color: yellow;  
+	color: red;  
 
 }
 #headernav ul a:active {  

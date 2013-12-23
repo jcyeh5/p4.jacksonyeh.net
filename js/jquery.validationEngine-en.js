@@ -97,7 +97,7 @@
                 "date": {                    
                     //	Check if date is valid by leap year
 			"func": function (field) {
-					var pattern = new RegExp(/^(\d{4})[\/\-\.](0?[1-9]|1[012])[\/\-\.](0?[1-9]|[12][0-9]|3[01])$/);
+					var pattern = new RegExp(/^(\d{4})[\/\-\.](0[1-9]|1[012])[\/\-\.](0[1-9]|[12][0-9]|3[01])$/);
 					var match = pattern.exec(field.val());
 					if (match == null)
 					   return false;
@@ -127,7 +127,7 @@
 					 "extraDataDynamic": ['#ajax_restaurant_id', '#ajax_user_id'],
 				},
                 "pricerange": {
-                    "regex": /^(\$|\$$|\$$$|\$$$$)$/,
+                    "regex": /^(\$|\$\$|\$\$\$|\$\$\$\$)$/,
                     "alertText": "* enter '$' , '$$' , '$$$' or '$$$$'"
                 },				
                 "url": {

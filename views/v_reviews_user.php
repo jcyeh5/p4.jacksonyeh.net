@@ -1,12 +1,21 @@
 <div class="mainframe">
+
+
 	<div id='restaurantinfobox'> 
-		Reviews by: <br>
-		<?=$user['first_name']?> <?=$user['last_name']?> <br>
+		 <!-- Display user info info -->
+		<h2>Reviews by: </h2>
+		<p class="review_author"><?=$user['first_name']?> <?=$user['last_name']?> </p>
 		 <?=$user['city']?> <?=$user['state']?>
 
 		<br>
 		<br>
 		 <!-- Display list of reviews by the user -->
+		<!-- If there is no reviews-->
+		<?php  if (empty($reviews) ): ?>
+				<p> there are no reviews for this user </p>
+			</div>
+		<?php endif; ?>		 
+		 
 		<?php foreach($reviews as $review): ?>
 			<!-- Print this review details -->	
 			<div class="reviews_user_listbox">	

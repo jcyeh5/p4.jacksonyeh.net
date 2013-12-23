@@ -3,15 +3,17 @@ class restaurants_controller extends base_controller {
 
     public function __construct() {
         parent::__construct();
-        #echo "users_controller construct called<br><br>";
-    } 
 
-    public function index($reason=null) {
-	
+		# Make sure user is logged in if they want to use anything in this controller
 		# If user is blank, they're not logged in; redirect them to the login page
 		if(!$this->user) {
 			Router::redirect('/users/login');
-		}	
+		}
+    } 
+
+	# Can be called from either Review Bistro or Edit Bistro
+    public function index($reason=null) {
+	
 
 		# Set up the View
 		$this->template->content = View::instance('v_restaurants_index');
@@ -57,13 +59,15 @@ class restaurants_controller extends base_controller {
 		$this->template->content->purpose = $reason;
 		
 		# Render the View
-		echo $this->template;	
-		
+		echo $this->template;		
     }
 
+	# Can be called from either Add Bistro or Edit Bistro
     public function add($restaurant_id= NULL) {
 
-        # Setup view
+
+		
+		# Setup view
         $this->template->content = View::instance('v_restaurants_add');
    
 		# are we Editing or Adding a restaurant?
@@ -157,14 +161,15 @@ class restaurants_controller extends base_controller {
 		# Pass data to the View		
 		$this->template->content->purpose = $purpose;
 		$this->template->content->restaurant = $restaurant;
-		
-		
+			
         # Render template
         echo $this->template;
     }
 
+	# Can be called from either Add Bistro or Edit Bistro	
 	public function p_add($restaurant_id = null) {
-		
+
+
 	
         # Dump out the results of POST to see what the form submitted
         #echo '<pre>';
@@ -192,14 +197,12 @@ class restaurants_controller extends base_controller {
 		"/js/jquery.form.js",
 		"/js/seagal.js",
         );
+		
 		# Use load_client_files to generate the links from the above array
 		$this->template->client_files_body = Utils::load_client_files($client_files_body);  	
 		
 		# Sanitize user input before moving on
 		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
-
-
-		
 			
 		# More data we want stored with the restaurant
 		$_POST['created']  = Time::now();
@@ -216,13 +219,15 @@ class restaurants_controller extends base_controller {
 		}
 
 		# Send them to the restaurant index list
-		Router::redirect("/restaurants/index");		
+		Router::redirect("/restaurants/index/edit");		
 		
     }
 
 
     public function review($restaurant_id) {
 
+
+	
 		# Setup view
         $this->template->content = View::instance('v_restaurants_review');
         $this->template->title   = "Review Restaurant";
@@ -306,9 +311,6 @@ class restaurants_controller extends base_controller {
 		$this->template->content->restaurant = $restaurant;		
 		$this->template->content->reviews = $reviews;
 		$this->template->content->likes = $likes;	
-
-	
-
 		
 		# Render template
         echo $this->template;
